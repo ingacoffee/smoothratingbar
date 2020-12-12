@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 typedef void RatingChangeCallback(double rating);
 
 class SmoothStarRating extends StatefulWidget {
+  final Key key;
   final int starCount;
   final double rating;
   final RatingChangeCallback onRated;
@@ -22,6 +23,7 @@ class SmoothStarRating extends StatefulWidget {
   final double spacing;
   final bool isReadOnly;
   SmoothStarRating({
+    this.key,
     this.starCount = 5,
     this.isReadOnly = false,
     this.spacing = 0.0,
@@ -34,7 +36,7 @@ class SmoothStarRating extends StatefulWidget {
     this.filledIconData = Icons.star,
     this.halfFilledIconData = Icons.star_half,
     this.allowHalfRating = true,
-  }) {
+  }) : super(key: key)  {
     assert(this.rating != null);
   }
   @override
